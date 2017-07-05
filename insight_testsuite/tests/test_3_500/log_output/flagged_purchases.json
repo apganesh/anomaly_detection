@@ -1,0 +1,9 @@
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"5802","amount":"195.05","mean":"64.08","sd":"42.15"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"191","amount":"201.07","mean":"65.28","sd":"42.92"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"8736","amount":"200.95","mean":"62.35","sd":"41.79"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"6878","amount":"205.11","mean":"62.21","sd":"40.88"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"4094","amount":"189.71","mean":"62.58","sd":"41.31"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"246","amount":"219","mean":"62.32","sd":"41.75"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"2501","amount":"204.29","mean":"68.02","sd":"43.73"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"6033","amount":"200.26","mean":"65.54","sd":"43.85"}
+{"event_type":"purchase","timestamp":"2017-06-14 18:46:50","id":"9351","amount":"216.24","mean":"68.89","sd":"43.24"}

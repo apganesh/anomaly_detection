@@ -90,19 +90,20 @@
 
 - Second experiment was to keep track of the node's status "dirty" or not.  The "dirty" flag is set on all the nodes which were affected by "unfriend" or "befriend".  As the network grows we might have isolated nodes which were not affected at all, and we dont have to recomupte the latest 'T' purchases in its network. The cached sum and sum^2 can be used to calculate the mean and standard deviations.
     - Merging of all the connected friends purchases to produce 'T' latest purchases is as follows:
-            - As the purchases made by each member is stroed in an ascending order of timestamp, we process each entry in reverse order which adding it the the minPQ.
-            - We sort the minPQ using a globalseq number which represents the order in which the "purchase" events occured.
-    - The algorithm goes like this:
-             - We initialize a min priority_queue (minPQ)
-             - Initialize a processing list with all the friends information
-             - For each friend's purchase in reverse order of its original purchases
-                - Keep adding the purchase to the minPQ till we reach the size of minPQ to 'T'
+        - As the purchases made by each member is stroed in an ascending order of timestamp, we process each entry in reverse order which adding it the the minPQ.
+        - We sort the minPQ using a globalseq number which represents the order in which the "purchase" events occured.
+        - The algorithm goes like this:
+             * We initialize a min priority_queue (minPQ)
+             * Initialize a processing list with all the friends information
+             * For each friend's purchase in reverse order of its original purchases
+                
+                * Keep adding the purchase to the minPQ till we reach the size of minPQ to 'T'
                     - Continue till we have 'T' entries in the minPQ
-                - We keep track of the indices of each friends' purchase list
-                - If for an entry has a sequence number > top items sequcence number
+                * We keep track of the indices of each friends' purchase list
+                * If for an entry has a sequence number > top items sequcence number
                     - Pop the top item and remove the top items' ID from the processing list (as this friends' prior purchased will not make it into minPQ we dont have to process it)
                     - Add the new entry into the minPQ.
-                - Else 
+                * Else 
                     - We can safely remove this friend from the processing list
 
     - The second experiment provided better runtime when compared to the first idea.  More optimization can be done on with respect to recomputing the members connected friends, when ever "befriend" or "unfriend" events occur.

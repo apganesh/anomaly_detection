@@ -1,7 +1,7 @@
 package main
 
 import (
-	"anomaly_detection/src/utils"
+	"github.com/apganesh/anomaly_detection/src/utils"
 	"fmt"
 	"os"
 	"strconv"

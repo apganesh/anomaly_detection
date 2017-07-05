@@ -6,9 +6,29 @@
 - The project needs Go (golang) compiler of version 1.7.4
 - There are no external dependencies and it uses all the standard package which are part of GO, and all the code is self contained
 
-## Code organization
+## Compilation instructions
+- I am using go 1.7.4, and it should work with other later version too (Tested it on go version 1.6.2 too)
+- Once go is installed do the following
+    - setenv GOPATH <location for go development> (say goworkdir -- fully qualified path)
+    - cd goworkdir
+    - mkdir src
+    - cd src
+    - go get github.com/apganesh/anomaly_detection
+        (This should download the whole repo under <goworkdir>/src/github.com/apganesh/anomaly_detection)
 
-# The main function:
+    - To run the tests you can "cd" to 
+         - cd <goworkdir>/src/github.com/apganesh/anomaly_detection/insight_testsuite 
+         - ./run_tests.sh
+         - File under <goworkdir>/src/github.com/apganesh/anomaly_detection/run.sh has been modified to build the executable "anomaly_detector"
+
+    - To compile it manually
+        - cd <goworkdir>/src/github.com/apganesh/anomaly_detection/
+        - execute ./run.sh
+        - This should create an executable called "anomaly_detector" under <goworkdir>/src/github.com/apganesh/anomaly_detection/src/anomaly_detector
+        - We can execute the tests from command line:
+        goworkdir>/src/github.com/apganesh/anomaly_detection/src/anomaly_detector <path to batch_log.json> <path to stream_log.json> <path to flagged_purchases.json>
+
+# Toplevel function called from main function:
 
 - ReadBatchFile
         - read the batch file and creates a graph with nodes/vertices which represents a social graph.

@@ -1,7 +1,6 @@
 
 # Summary
--  This is an attempt to the coding challenge:
-[Challenge]:https://github.com/InsightDataScience/anomaly_detection/blob/master/README.md
+-  This is an attempt to the coding challenge:https://github.com/InsightDataScience/anomaly_detection/blob/master/README.md
 
 ## Dependencies
 - The project needs Go (golang) compiler of version 1.7.4
@@ -62,16 +61,15 @@
 - Various experimentations on how to achieve the optimal run time.
 
 ## Idea 1
-
-    - Initially the problem seemed to be trivial, but once started working with huge test cases with a huget network, figured out that doing a merge of all the purchases in the friends's network, seems to be compute intesive.  Merging T * number of friends and find the Mean and StandardDeviation for every 'purchase' seems to be and overkill.  Used the heap datastructure to collate all the purchases and heapified it find the top 'T' latest purchases.
+- Initially the problem seemed to be trivial, but once started working with huge test cases with a huget network, figured out that doing a merge of all the purchases in the friends's network, seems to be compute intesive.  Merging T * number of friends and find the Mean and StandardDeviation for every 'purchase' seems to be and overkill.  Used the heap datastructure to collate all the purchases and heapified it find the top 'T' latest purchases.
 
 ## Idea 2
 
-    - Second experiment was to keep track of the node's status "dirty" or not.  The "dirty" flag is set on all the nodes which were affected by "unfriend" or "befriend".  As the network grows we might have isolated nodes which were not affected at all, and we dont have to recomupte the latest 'T' purchases in its network. The cached sum and sum^2 can be used to calculate the mean and standard deviations.
-        - Merging of all the connected friends purchases to produce 'T' latest purchases is as follows:
+- Second experiment was to keep track of the node's status "dirty" or not.  The "dirty" flag is set on all the nodes which were affected by "unfriend" or "befriend".  As the network grows we might have isolated nodes which were not affected at all, and we dont have to recomupte the latest 'T' purchases in its network. The cached sum and sum^2 can be used to calculate the mean and standard deviations.
+    - Merging of all the connected friends purchases to produce 'T' latest purchases is as follows:
             - As the purchases made by each member is stroed in an ascending order of timestamp, we process each entry in reverse order which adding it the the minPQ.
             - We sort the minPQ using a globalseq number which represents the order in which the "purchase" events occured.
-        - The algorithm goes like this:
+    - The algorithm goes like this:
              - We initialize a min priority_queue (minPQ)
              - Initialize a processing list with all the friends information
              - For each friend's purchase in reverse order of its original purchases

@@ -272,10 +272,10 @@ func (ad *AnomalyDetection) ReadBatchFile(fileName string) bool {
 		fmt.Println("Error parsing D and T information from file: ", err)
 		return false
 	}
-	/*
-		ad.Degree = dt.D
-		ad.Transactions = dt.T
-	*/
+
+	ad.Degree = dt.D
+	ad.Transactions = dt.T
+
 	var evt Event
 	ad.readingstream = false
 

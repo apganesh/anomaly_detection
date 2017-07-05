@@ -9,9 +9,9 @@
 ## Compilation instructions
 - I am using go 1.7.4, and it should work with other later version too (Tested it on go version 1.6.2 too)
 - Once go is installed do the following
-    - `setenv GOPATH <directory for go development>`
+    - `setenv GOPATH <directory for go development> (tcsh)`
         OR
-    - `export GOPATH=<director for go development>`
+    - `export GOPATH=<director for go development> (zsh, bash)`
 
     - `cd $GOPATH`
     - `mkdir src`
